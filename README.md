@@ -15,7 +15,8 @@ activation functions, training parameters and meta parameters.
 3. Population.py creates a population of neural networks, evaluates them and creates a new generation by taking the best-sampled networks, 
 recombining their genomes (through sexual reproduction) and mutating them.
 
-Some results of my neural network evolution after a few hundred generations of training on MNIST can be foun in the result folder.
+Some results of my neural network evolution after a few hundred generations of training on MNIST can be foun in googel drive:
+https://drive.google.com/drive/folders/1pOU_IcQCDtSLHNmk3QrCadB2PXCU5ryX?usp=sharing
 
 Neural networks are composed of cells, a list of common proteins, and metaparameters. Each cell is a basic unit of the neural network, 
 and it carries out matrix operations in a TensorFlow model. In Python code, cells are represented as a list. This list includes a genome, 
