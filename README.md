@@ -1,6 +1,6 @@
 # Neuroevolution
 Simulation of neural network evolution
-
+(https://user-images.githubusercontent.com/121340828/219107823-70b1ffb4-ce73-4e16-9d07-33f3f5908b07.png)
 My project is to create neural networks that can evolve like living organisms. This mechanism of evolution is inspired by real-world biology and 
 is heavily focused on biochemistry. Much like real living organisms, my neural networks consist of cells, each with their own genome and proteins. 
 Proteins can express and repress genes, manipulate their own genetic code and other proteins, regulate neural network connections, 
