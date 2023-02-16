@@ -49,8 +49,11 @@ The code for this project consists of three parts:
 3. Population.py creates a population of neural networks, evaluates them with MNIST dataset and creates a new generation by taking the best-performed networks, recombining their genomes (through sexual reproduction) and mutating them.
 
 ### Other interesting results:
-![This is an image](https://preview.redd.it/4zibk5af0gia1.png?width=1957&format=png&auto=webp&v=enabled&s=c0d2a0b6ae021dac908fdfa196af64f31e04f2c9)
-![This is an image](https://preview.redd.it/mxe0hgv90gia1.png?width=2366&format=png&auto=webp&v=enabled&s=c02e6f6d222e4f82d13c496c778875ee58f3ff90)
+
+<img width="500" alt="Screenshot4" src="https://user-images.githubusercontent.com/121340828/219380757-25f5c0a7-241f-44d9-a3c5-c09e47681569.png"><img width="500" alt="Screenshot5" src="https://user-images.githubusercontent.com/121340828/219380888-bacc05ea-3d7e-4d5f-82f4-867c4d849dec.png">
+<img width="1000" alt="Screenshot6" src="https://user-images.githubusercontent.com/121340828/219381971-6e978d77-562a-419a-9896-c38a8114e100.png">
+
+
 
 ## How the genetic compiler works
 Neural networks are composed of cells, a list of common proteins, and metaparameters. Each cell is a basic unit of the neural network, and it carries out matrix operations in a TensorFlow model. In Python code, cells are represented as a list. This list includes a genome, a protein dictionary, a cell name, connections, a matrix operation, an activation function, and weights:
@@ -164,7 +167,7 @@ How development works:
 
 
 ## Main code files
-### GenPile_2
+### GenPile_2.py
 Genetical compiler, indirectly encodes neural network into a string of genome.
 ### Tensorflow_model.py
 Transforming a neural network in the form of a list to a Tensorflow model. It creates a `model_tmp.py`, which is a python written code of a Tensorflow model. If you remove both `"'''"` in the end of the file, you can see the model.summary, a visual representation of the model (`random_model.png`) and test it on the MNIST dataset. You can see such a file in the repository.
