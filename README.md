@@ -12,7 +12,11 @@ How to evolve your own neural network?
 
 If you want to try evolve your own Neural Networks, you only need python interpreter and Tenserflow installed. And the code of course!
 Start with population.py - run the script, in my case I use zsh terminal on MacOS.
+
+
 command:python3 path/to/destination/population.py
+
+
 Default number of neural networks in a population is set to 10 and maximum development time - 10 second, so it will take about 100 second to develop all NNs. Then, each one will start to learn MNIST dataset for 3 epochs and will be evaluated. This process of leaning will be shown interactively, and you will see, how much accuracy does a model get each time(from 0 to 1).
 After each model has been evaluated, best will be selected and their genes will be recombined, and population will be saved in a "boost_perfomnc_gen" folder, in the "gen_N.json" file, where N - number of your generation
 If you would like to see the resulted neural network architecture:
