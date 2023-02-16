@@ -50,7 +50,7 @@ The code for this project consists of three parts:
 
 ### Other interesting results:
 
-<img width="500" alt="Screenshot4" src="https://user-images.githubusercontent.com/121340828/219380757-25f5c0a7-241f-44d9-a3c5-c09e47681569.png">
+<img width="800" alt="Screenshot4" src="https://user-images.githubusercontent.com/121340828/219380757-25f5c0a7-241f-44d9-a3c5-c09e47681569.png">
 <img width="1000" alt="Screenshot6" src="https://user-images.githubusercontent.com/121340828/219381971-6e978d77-562a-419a-9896-c38a8114e100.png">
 
 
