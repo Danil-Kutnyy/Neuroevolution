@@ -1,10 +1,33 @@
 # Neuroevolution
-Simulation of neural network evolution
+Simulation of neural network evolution.
+
 My project is to create neural networks that can evolve like living organisms. This mechanism of evolution is inspired by real-world biology and 
 is heavily focused on biochemistry. Much like real living organisms, my neural networks consist of cells, each with their own genome and proteins. 
 Proteins can express and repress genes, manipulate their own genetic code and other proteins, regulate neural network connections, 
 facilitate gene splicing, and manage the flow of proteins between cells - all of which contribute to creating a complex gene regulatory network and 
 an indirect encoding mechanism for neural networks, where even a single letter mutation can cause dramatic changes to a model.
+
+
+How to evolve your own neural network?
+If you want to try evolve your own Neural Networks, you only need python interpreter and Tenserflow installed. And the code of course!
+Start with population.py - run the script, in my case I use zsh terminal on MacOS.
+command:python3 path/to/destination/population.py
+Default number of neural networks in a population is set to 10 and maximum development time - 10 second, so it will take about 100 second to develop all NNs. Then, each one will start to learn MNIST dataset for 3 epochs and will be evaluated. This process of leaning will be shown interactively, and you will see, how much accuracy does a model get each time(from 0 to 1).
+After each model has been evaluated, best will be selected and their genes will be recombined, and population will be saved in a "boost_perfomnc_gen" folder, in the "gen_N.json" file, where N - number of your generation
+If you would like to see the resulted neural network architecture:
+1. choose last gen_N.json file (represents last generation of neural network models)
+2. open test.py
+3. On the 1st line of code, there will be: "generation_file = "default_gen_284.json"
+4. change "default_gen_284.json" to "gen_N.json"
+5. By default, 1st neural network in population is choose(neural_network_pop_number=0). Choose, which exact network in present generation you want to visualise(by default there exist 10 NNs, index numbers: 0-9)
+6. run the script
+7. full model architecture will be saved as "test_model.png"
+
+
+
+About
+
+
 
 The code for this project consists of three parts: 
 1. Genpiler (a genetical compiler) - the heart of the evolution code, which simulates many known biochemistry processes of living organisms, 
@@ -141,12 +164,7 @@ In order for development to start:
 1. NN should have at least one cell, with a working genetic code. First, I write a simple code myself, it is very simple. From there, it can evolve.
 2. Also, for development to start, NN should contain at least one expression protein in its protein dictionary for proteins expression network to start making its thing.
 
-Code logic:
-When the neural network satisfies the previously written condition, you can use the develop method. This method starts an infinite loop. There are two ways to stop this loop:
-1. Expression of a protein in a common_protein list, which stops the development process (usually it works like this - some cell expresses the "stop developing" protein, which then travels to the common_protein).
-2. The development loop has a time limit, a neural network meta parameter.
-
-How development works:
+How development method works:
 1. Loop over neural network cells.
     1. Loop over each protein in each cell and add what the protein should do to a specific "to do" list.
     2. After this cell loop ends, everything said in the "to do" list is done, one by one.
@@ -165,6 +183,7 @@ Main parameters in population.py:
 1. number_nns - number of neural networks to take per population (10 default)
 2. start_pop - file with genetic code of population. /boost_performance_gen/default_gen_284.json by default
 3. save_folder - where to save the result of your population's evolution
+
 
 Test.py
 If you want to test a specific neural network, use test.py to see the visualization of its structure (saved as a png) and test it on the MNIST data.
