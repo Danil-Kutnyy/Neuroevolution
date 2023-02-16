@@ -9,6 +9,7 @@ an indirect encoding mechanism for neural networks, where even a single letter m
 
 
 How to evolve your own neural network?
+
 If you want to try evolve your own Neural Networks, you only need python interpreter and Tenserflow installed. And the code of course!
 Start with population.py - run the script, in my case I use zsh terminal on MacOS.
 command:python3 path/to/destination/population.py
