@@ -10,7 +10,7 @@ an indirect encoding mechanism for neural networks, where even a single letter m
 
 Some cool results of my neural network evolution after a few hundred generations of training on MNIST can be found in [Google drive](https://drive.google.com/drive/folders/1pOU_IcQCDtSLHNmk3QrCadB2PXCU5ryX?usp=sharing)
 
-## How to evolve your own neural network?
+## How to evolve your own neural network(small guide)?
 
 If you want to try evolve your own Neural Networks, you only need python interpreter and Tenserflow installed. And the code of course!
 Start with `population.py` - run the script, in my case I use zsh terminal on MacOS.
@@ -56,7 +56,9 @@ The code for this project consists of three parts:
 
 
 ## How the genetic compiler works
-Neural networks are composed of cells, a list of common proteins, and metaparameters. Each cell is a basic unit of the neural network, and it carries out matrix operations in a TensorFlow model. In Python code, cells are represented as a list. This list includes a genome, a protein dictionary, a cell name, connections, a matrix operation, an activation function, and weights:
+#### Cells
+Neural networks are composed of 3 basic units - cells, a list of common proteins, and metaparameters. Each cell is a basic unit of the neural network, and it carries out matrix operations in a TensorFlow model. In Python code, cells are represented as a list. This list includes a genome, a protein dictionary, a cell name, connections, a matrix operation, an activation function, and weights.
+Cell as a list representation contaon this items:
 1. The genome is a sequence of arbitrary A, C, T, and G letter combinations. Over time, lowercase letters (a, c, t, g) may be included, to indicate sequences that are not available for transcription.
 2. The protein dictionary is a set of proteins, each represented by a sequence of A, C, T, and G letters, as well as a rate parameter. This rate parameter is a number between 1 and 4000, and it simulates the concentration rate of the protein. Some proteins can only be activated when the concentration reaches a certain level.
 3. The cell name is a specific sequence, in the same form as the protein and genome. It is used to identify specific cells and cell types, so that proteins can work with the exact cell and cell types. For example, a protein can work with all cells that have the sequence "ACTGACTGAC" in their name.
@@ -73,7 +75,7 @@ Common proteins are similar to the proteins found in a single cell, but they pla
 
 ## Gene transcription and expression
 ### Gene transcription
-All cells start with some genome and a protein, such as `AAAATTGCATAACGACGACGGC`. What does this protein do?
+First and single cell of NN, before strating development process, has some genome(which evolves over generations) and a protein - `AAAATTGCATAACGACGACGGC`. What does this protein do?
 
 ![r/artificial](https://preview.redd.it/jllu4rgn6eia1.jpg?width=318&format=pjpg&auto=webp&v=enabled&s=14021fa3d36360831e3bf8196a154de96426007e) 
 
@@ -94,7 +96,7 @@ Each protein, though it has a specific name, in this case "gene transcription ac
 
 
 The "gene transcription activation" protein can do all of these things, so each exon (protein parameter) encodes an exact action. The first codon (three-letter sequence) encodes what type of exon it is, and the other codons encode other information. In the example, the first codon `ATA` of this parameter shows the type of parameter. `ATA` means that this is an expression site parameter, so the next three codons: `ACG ACG ACG` specify the site to which the gene expression protein will bind to express a gene (shown in the example later). A special function `codons_to_nucl` is used to transcribe codons into a sequence of `ACTG` alphabet. In our case, the `AC ACG ACG` codons encode the sequence `CTCTCT`. This sequence will be used as a binding site.
-Now, after we understand how the protein sequence `AAAATTGCATAACGACGACGGC` will be read by our program and do its function, I will show you how gene expression happens.
+Now, after we understand how the protein `AAAATTGCATAACGACGACGGC` will be read by our program and do its function, lets see how gene expression happens.
 ### Gene expression
 Imagine such a piece of genetic code is present in the genome(Spaces & «|» are used for separation and readability): 
 
@@ -108,7 +110,8 @@ Rate is the number describing protein concentration. By default, the expression 
 
 So, in the process of expression, the protein is added to a proteins_list, simulating gene expression, and then it can do its function. However, there are a few additional steps before the protein is expressed.
 There are repression proteins. They are used to repress gene expression and they work similarly to gene expression activation, but in the opposite direction. They can encode a special sequence and strength of silence, so that the transcription rate lowers, depending on how close the binding expression occurs and what the strength of silence is.
-The gene splicing mechanism cuts the gene into different pieces, then deletes introns and recombines exons. Splicing can also be regulated in the cell by a special slicing regulation protein.
+
+Then there is also a gene splicing mechanism cuts the gene into different pieces, then deletes introns and recombines exons. Splicing can also be regulated in the cell by a special slicing regulation protein.
 
 ![image splicing](https://preview.redd.it/poiu8b6q6eia1.jpg?width=400&format=pjpg&auto=webp&v=enabled&s=65690c2e4b3e7fb3e90c77af4d295e9b1e12593b)
 
@@ -142,7 +145,7 @@ What else does a cell do?
 2. Protein splicing and translation
 
 
-`Common_protein` is intercell protein list. Some proteins can only do its function in the common_protein intercell environment:
+`Common_protein` is intercell protein list. Some proteins can only do its function in the common_protein list or so called intercell environment:
 
 1. Common connection growth factor - regulates connection growth between cells
 2. Stop development
@@ -150,10 +153,10 @@ What else does a cell do?
 4. Mutation rate - changes the mutation parameter, how actively the cell will mutate
 
 
-NN object has a develop method. In order for development to start:
+NN(neural network) object has a develop method. In order for development to start:
 
 1. NN should have at least one cell, with a working genetic code. First, I write a simple code myself, it is very simple. From there, it can evolve.
-3. Also, for development to start, NN should contain at least one expression protein in its protein dictionary for proteins expression network to start making its thing.
+3. Also, for development to start, NN should contain at least one expression protein in its protein dictionary for proteins expression network to start making its thing.(otherwise expression cascade can not start)
 
 
 How development works:
